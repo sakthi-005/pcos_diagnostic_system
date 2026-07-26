@@ -71,7 +71,7 @@ diagnostic device. It does not replace professional medical evaluation.
 
 1. Clone this repository:
 
-git clone https://github.com/YOUR-USERNAME/pcos_diagnostic_system.git
+git clone git clone https://github.com/Sakthi-2027/pcos_diagnostic_system.git
 cd pcos_diagnostic_system
 
 2. Create and activate a virtual environment:
@@ -93,8 +93,23 @@ Then open `http://127.0.0.1:5000` in your browser.
 
 ## Screenshots
 
-*(Screenshots to be added: landing page, assessment form, dashboard, diet
-plan, analytics, history, and PDF report)*
+### Landing Page
+![Landing Page](screenshots/landing.jpeg)
+
+### Health Assessment
+![Assessment](screenshots/assessment.jpeg)
+
+### Patient Dashboard
+![Dashboard](screenshots/dashboard.jpeg)
+
+### Diet Plan
+![Diet Plan](screenshots/diet-plan.jpeg)
+
+### Health Analytics
+![Analytics](screenshots/analytics.jpeg)
+
+### Prediction History
+![History](screenshots/history.jpeg)
 
 ## Future Enhancements
 

@@ -71,7 +71,7 @@ diagnostic device. It does not replace professional medical evaluation.
 
 1. Clone this repository:
 
-git clone https://github.com/YOUR-USERNAME/pcos_diagnostic_system.git
+git clone https://github.com/Sakthi-2027/pcos_diagnostic_system.git
 cd pcos_diagnostic_system
 
 2. Create and activate a virtual environment:

@@ -129,10 +129,12 @@
     </div>
 </div>
 
-<div class="text-center mt-5">
-    <a href="{{ url_for('diet_plan') }}" class="btn next-btn me-2">View Diet Plan</a>
-<a href="{{ url_for('exercise_plan') }}" class="btn back-btn">View Exercise Plan</a>
-<button id="downloadReportBtn" class="btn back-btn">Download Report (PDF)</button>
+<div class="text-center mt-5 dashboard-actions">
+    <a href="{{ url_for('diet_plan') }}" class="btn next-btn">View Diet Plan</a>
+    <a href="{{ url_for('exercise_plan') }}" class="btn back-btn">View Exercise Plan</a>
+    <a href="{{ url_for('analytics') }}" class="btn back-btn">Health Analytics</a>
+    <a href="{{ url_for('history') }}" class="btn back-btn">Prediction History</a>
+    <button id="downloadReportBtn" class="btn back-btn">Download Report (PDF)</button>
 </div>
 
     </div>

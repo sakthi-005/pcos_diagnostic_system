@@ -502,3 +502,9 @@ h1, h2, h3, .display-font {
 }
 .risk-badge-high { background: #FBE1E7; color: var(--bloom); }
 .risk-badge-low  { background: #EDE7F6; color: var(--iris); }
+.dashboard-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+}

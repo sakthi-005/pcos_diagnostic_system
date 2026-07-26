@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Your Diet Plan - PCOSense{% endblock %}
+
+{% block content %}
+
+<div class="plan-page py-5">
+    <div class="container">
+        <span class="eyebrow">Personalized Diet Plan</span>
+        <h2 class="display-font mb-4">Built around your numbers</h2>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-3 col-6">
+                <div class="dash-card text-center">
+                    <span class="patient-label">Breakfast</span>
+                    <p class="mb-0 mt-2" id="mealBreakfast">--</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="dash-card text-center">
+                    <span class="patient-label">Lunch</span>
+                    <p class="mb-0 mt-2" id="mealLunch">--</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="dash-card text-center">
+                    <span class="patient-label">Evening Snack</span>
+                    <p class="mb-0 mt-2" id="mealSnack">--</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="dash-card text-center">
+                    <span class="patient-label">Dinner</span>
+                    <p class="mb-0 mt-2" id="mealDinner">--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="dash-card h-100">
+                    <span class="eyebrow">Foods to Prefer</span>
+                    <ul class="mt-3 mb-0" id="foodsPrefer"></ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dash-card h-100">
+                    <span class="eyebrow">Foods to Avoid</span>
+                    <ul class="mt-3 mb-0" id="foodsAvoid"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-card mt-4 text-center">
+            <span class="eyebrow">Water Intake Goal</span>
+            <p class="data-font h4 mt-2 mb-0" id="dietWaterGoal">--</p>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('dashboard') }}" class="btn back-btn">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/diet_plan.js') }}"></script>
+{% endblock %}

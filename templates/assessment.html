@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Health Assessment - PCOSense{% endblock %}
+
+{% block content %}
+
+<div class="assessment-page py-5">
+    <div class="container">
+
+        <!-- Progress indicator: 4 dots along a ring-styled track -->
+        <div class="progress-track mb-5">
+            <div class="progress-step active" data-step="1">
+                <span class="step-num">1</span><span class="step-label">Personal</span>
+            </div>
+            <div class="progress-step" data-step="2">
+                <span class="step-num">2</span><span class="step-label">Menstrual</span>
+            </div>
+            <div class="progress-step" data-step="3">
+                <span class="step-num">3</span><span class="step-label">Symptoms</span>
+            </div>
+            <div class="progress-step" data-step="4">
+                <span class="step-num">4</span><span class="step-label">Lifestyle</span>
+            </div>
+        </div>
+
+        <form id="assessmentForm" class="assessment-card" novalidate>
+
+            <!-- STEP 1: Personal Information -->
+            <div class="form-step active" data-step="1">
+                <span class="eyebrow">Step 1 of 4</span>
+                <h2 class="display-font mb-4">Personal Information</h2>
+
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Age (years)</label>
+                        <input type="number" class="form-control" id="age" min="10" max="60" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Height (cm)</label>
+                        <input type="number" class="form-control" id="height" min="100" max="220" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Weight (kg)</label>
+                        <input type="number" class="form-control" id="weight" min="25" max="200" required>
+                    </div>
+                </div>
+
+                <div class="bmi-preview mt-4" id="bmiPreview" style="display:none;">
+                    <span class="data-font bmi-value" id="bmiValue">--</span>
+                    <span class="bmi-category" id="bmiCategory">Enter height &amp; weight</span>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn next-btn" data-next="2">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Menstrual History -->
+<div class="form-step" data-step="2">
+    <span class="eyebrow">Step 2 of 4</span>
+    <h2 class="display-font mb-4">Menstrual History</h2>
+
+    <div class="mb-4">
+        <label class="form-label d-block">Is your cycle regular?</label>
+        <div class="btn-toggle-group" id="cycleRegularity">
+            <button type="button" class="btn-toggle active" data-value="0">Regular</button>
+            <button type="button" class="btn-toggle" data-value="1">Irregular</button>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Average cycle length (days)</label>
+            <input type="number" class="form-control" id="cycleLength" min="0" max="90" required>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label d-block">Currently pregnant?</label>
+            <div class="btn-toggle-group" id="pregnant">
+                <button type="button" class="btn-toggle" data-value="1">Yes</button>
+                <button type="button" class="btn-toggle active" data-value="0">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="step-actions">
+        <button type="button" class="btn back-btn" data-back="1">Back</button>
+        <button type="button" class="btn next-btn" data-next="3">Continue</button>
+    </div>
+</div>
+
+<!-- STEP 3: Clinical Symptoms -->
+<div class="form-step" data-step="3">
+    <span class="eyebrow">Step 3 of 4</span>
+    <h2 class="display-font mb-4">Clinical Symptoms</h2>
+    <p class="text-muted mb-4">Select any that apply to you.</p>
+
+    <div class="symptom-grid">
+        <label class="symptom-check">
+            <input type="checkbox" id="weightGain">
+            <span><i class="fa-solid fa-weight-scale"></i> Recent weight gain</span>
+        </label>
+        <label class="symptom-check">
+            <input type="checkbox" id="hairGrowth">
+            <span><i class="fa-solid fa-wind"></i> Excess facial/body hair growth</span>
+        </label>
+        <label class="symptom-check">
+            <input type="checkbox" id="hairLoss">
+            <span><i class="fa-solid fa-droplet"></i> Hair thinning / hair loss</span>
+        </label>
+        <label class="symptom-check">
+            <input type="checkbox" id="skinDarkening">
+            <span><i class="fa-solid fa-circle-half-stroke"></i> Skin darkening (neck/folds)</span>
+        </label>
+        <label class="symptom-check">
+            <input type="checkbox" id="pimples">
+            <span><i class="fa-solid fa-face-smile"></i> Persistent acne / pimples</span>
+        </label>
+    </div>
+
+    <div class="step-actions">
+        <button type="button" class="btn back-btn" data-back="2">Back</button>
+        <button type="button" class="btn next-btn" data-next="4">Continue</button>
+    </div>
+</div>
+
+<!-- STEP 4: Lifestyle -->
+<div class="form-step" data-step="4">
+    <span class="eyebrow">Step 4 of 4</span>
+    <h2 class="display-font mb-4">Lifestyle</h2>
+
+    <div class="mb-4">
+        <label class="form-label d-block">Do you eat fast food regularly?</label>
+        <div class="btn-toggle-group" id="fastFood">
+            <button type="button" class="btn-toggle" data-value="1">Yes</button>
+            <button type="button" class="btn-toggle active" data-value="0">No</button>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label d-block">Do you exercise regularly?</label>
+        <div class="btn-toggle-group" id="regExercise">
+            <button type="button" class="btn-toggle" data-value="1">Yes</button>
+            <button type="button" class="btn-toggle active" data-value="0">No</button>
+        </div>
+    </div>
+
+    <div class="step-actions">
+        <button type="button" class="btn back-btn" data-back="3">Back</button>
+        <button type="submit" class="btn submit-btn">Get My Results</button>
+    </div>
+</div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

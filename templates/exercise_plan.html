@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Your Exercise Plan - PCOSense{% endblock %}
+
+{% block content %}
+
+<div class="plan-page py-5">
+    <div class="container">
+        <span class="eyebrow">Personalized Exercise Plan</span>
+        <h2 class="display-font mb-4">Movement that fits your body</h2>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="dash-card text-center">
+                    <i class="fa-solid fa-person-walking rec-icon"></i>
+                    <span class="patient-label">Walking</span>
+                    <p class="data-font h5 mb-0 mt-1" id="walkingDuration">--</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dash-card text-center">
+                    <i class="fa-solid fa-spa rec-icon"></i>
+                    <span class="patient-label">Yoga &amp; Stretching</span>
+                    <p class="data-font h5 mb-0 mt-1" id="yogaDuration">--</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dash-card text-center">
+                    <i class="fa-solid fa-shoe-prints rec-icon"></i>
+                    <span class="patient-label">Daily Step Goal</span>
+                    <p class="data-font h5 mb-0 mt-1" id="stepGoal">--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-card">
+            <span class="eyebrow">Weekly Schedule</span>
+            <div class="week-grid mt-3" id="weekSchedule"></div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('dashboard') }}" class="btn back-btn">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/exercise_plan.js') }}"></script>
+{% endblock %}

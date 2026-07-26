@@ -1,0 +1,52 @@
+/* PAGE METADATA */
+
+{% extends "base.html" %}
+
+{% block title %}Health Analytics - PCOSense{% endblock %}
+/* EXTERNAL DEPENDENCIES */
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+{% endblock %}
+/* PAGE CONTENT */
+{% block content %}
+/* HEALTH ANALYTICS DASHBOARD */
+<div class="plan-page py-5">
+    <div class="container">
+        <span class="eyebrow">Health Analytics</span>
+        <h2 class="display-font mb-4">Your data, visualized</h2>
+/* ANALYTICS SUMMARY CHARTS */
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="dash-card">
+                    <span class="eyebrow">BMI Gauge</span>
+                    <div class="chart-wrap"><canvas id="bmiGaugeChart"></canvas></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dash-card">
+                    <span class="eyebrow">Prediction Probability</span>
+                    <div class="chart-wrap"><canvas id="probabilityChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+/* SYMPTOM DISTRIBUTION CHART  */
+        <div class="row g-4">
+            <div class="col-md-12">
+                <div class="dash-card">
+                    <span class="eyebrow">Symptom Distribution</span>
+                    <div class="chart-wrap chart-wrap-wide"><canvas id="symptomChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+/* DASHBOARD NAVIGATION */
+        <div class="text-center mt-4">
+            <a href="{{ url_for('dashboard') }}" class="btn back-btn">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+/* PAGE SCRIPTS */
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+{% endblock %}

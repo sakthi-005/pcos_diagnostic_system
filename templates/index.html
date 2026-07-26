@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}PCOSense - AI-Powered PCOS Risk Assessment{% endblock %}
+
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+            <i class="fa-solid fa-heart-pulse" style="color: var(--primary-purple);"></i>
+            PCOSense
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About PCOS</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section py-5">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="eyebrow">AI-assisted screening, not a diagnosis</span>
+                <h1 class="display-4 display-font mb-3">Understand your cycle. Understand your risk.</h1>
+                <p class="lead text-muted mb-4">
+                    PCOSense reads the same patterns a clinician looks for — cycle rhythm,
+                    symptoms, and body signals — and turns them into a clear, personalized picture
+                    of your PCOS risk in minutes.
+                </p>
+                <a href="{{ url_for('assessment') }}" class="btn btn-lg px-5 py-3 hero-btn">Start Assessment</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <svg viewBox="0 0 320 320" class="cycle-ring" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="var(--bloom)" />
+                            <stop offset="100%" stop-color="var(--iris)" />
+                        </linearGradient>
+                    </defs>
+                    <!-- 28 tick marks representing a cycle day count -->
+                    <circle cx="160" cy="160" r="140" fill="none" stroke="var(--mist)"
+                            stroke-width="3" stroke-dasharray="6 25.4" />
+                    <!-- Progress arc: day 14 of 28 highlighted -->
+                    <circle cx="160" cy="160" r="140" fill="none" stroke="url(#ringGradient)"
+                            stroke-width="6" stroke-linecap="round"
+                            stroke-dasharray="440 880" transform="rotate(-90 160 160)" />
+                    <text x="160" y="150" text-anchor="middle" class="ring-day">Day 14</text>
+                    <text x="160" y="178" text-anchor="middle" class="ring-label">of your cycle</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5" style="background: var(--soft-purple);">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <h2 class="fw-bold" style="color: var(--primary-purple);">1 in 10</h2>
+                <p class="text-muted">Women affected by PCOS globally</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="fw-bold" style="color: var(--primary-purple);">70%</h2>
+                <p class="text-muted">Cases remain undiagnosed</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="fw-bold" style="color: var(--primary-purple);">14</h2>
+                <p class="text-muted">Health factors we analyze</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About PCOS Section -->
+<section id="about" class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">What is PCOS?</h2>
+        <p class="text-muted text-center mx-auto" style="max-width: 700px;">
+            Polycystic Ovary Syndrome (PCOS) is a common hormonal condition affecting people
+            with ovaries during their reproductive years. Early detection and lifestyle
+            management can significantly improve outcomes.
+        </p>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-5" style="background: var(--mist);">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <span class="eyebrow">What PCOSense does</span>
+            <h2 class="display-font">One assessment, a full picture</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fa-solid fa-brain feature-icon"></i>
+                    <h3 class="h5 display-font">AI Risk Prediction</h3>
+                    <p class="text-muted mb-0">A trained model reads your symptoms and cycle
+                        data to estimate PCOS risk with a clear confidence score.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fa-solid fa-chart-line feature-icon"></i>
+                    <h3 class="h5 display-font">Personal Dashboard</h3>
+                    <p class="text-muted mb-0">Your BMI, lifestyle score, and health summary,
+                        laid out the way a clinician would read a chart.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fa-solid fa-leaf feature-icon"></i>
+                    <h3 class="h5 display-font">Diet &amp; Exercise Plans</h3>
+                    <p class="text-muted mb-0">Recommendations generated from your own numbers,
+                        not a generic list everyone gets.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

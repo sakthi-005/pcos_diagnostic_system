@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction History - PCOSense{% endblock %}
+
+{% block content %}
+
+<div class="plan-page py-5">
+    <div class="container">
+        <span class="eyebrow">Prediction History</span>
+        <h2 class="display-font mb-4">Every assessment, saved</h2>
+
+        <div class="dash-card mb-4">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-6">
+                    <label class="form-label">Search by Patient ID</label>
+                    <input type="text" class="form-control" id="searchInput" placeholder="e.g. PCS-123456">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Filter by Risk</label>
+                    <select class="form-control" id="riskFilter">
+                        <option value="all">All</option>
+                        <option value="1">High Risk</option>
+                        <option value="0">Low Risk</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-card">
+            <div class="table-responsive">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Date</th>
+                            <th>BMI</th>
+                            <th>Prediction</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <tr><td colspan="5" class="text-center text-muted py-4">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('dashboard') }}" class="btn back-btn">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/history.js') }}"></script>
+{% endblock %}

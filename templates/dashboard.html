@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block title %}Your Dashboard - PCOSense{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-page py-5">
+    <div class="container">
+
+        <!-- Patient Summary &  AI Diagnosis -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-7">
+                <div class="dash-card h-100">
+                    <span class="eyebrow">Patient Summary</span>
+                    <div class="patient-grid mt-3">
+                        <div>
+                            <span class="patient-label">Patient ID</span>
+                            <span class="patient-value data-font" id="patientId">--</span>
+                        </div>
+                        <div>
+                            <span class="patient-label">Assessment Date</span>
+                            <span class="patient-value data-font" id="assessDate">--</span>
+                        </div>
+                        <div>
+                            <span class="patient-label">Age</span>
+                            <span class="patient-value data-font" id="patientAge">--</span>
+                        </div>
+                        <div>
+                            <span class="patient-label">BMI</span>
+                            <span class="patient-value data-font" id="patientBmi">--</span>
+                        </div>
+                        <div>
+                            <span class="patient-label">Height</span>
+                            <span class="patient-value data-font" id="patientHeight">--</span>
+                        </div>
+                        <div>
+                            <span class="patient-label">Weight</span>
+                            <span class="patient-value data-font" id="patientWeight">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="dash-card h-100 diagnosis-card" id="diagnosisCard">
+                    <span class="eyebrow">AI Diagnosis</span>
+                    <h2 class="display-font mt-3 mb-1" id="riskLabel">--</h2>
+                    <p class="text-muted mb-3">Based on 14 clinical &amp; lifestyle factors</p>
+                    <div class="confidence-bar-track">
+                        <div class="confidence-bar-fill" id="confidenceBar"></div>
+                    </div>
+                    <span class="data-font confidence-text" id="confidenceText">-- % confidence</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- BMI Analysis & Daily Health Summary -->
+<div class="row g-4 mb-4">
+    <div class="col-lg-6">
+        <div class="dash-card h-100">
+            <span class="eyebrow">BMI Analysis</span>
+            <div class="d-flex align-items-baseline gap-2 mt-3 mb-2">
+                <span class="data-font bmi-big" id="bmiBig">--</span>
+                <span class="bmi-cat-badge" id="bmiCatBadge">--</span>
+            </div>
+            <div class="bmi-scale">
+                <div class="bmi-scale-fill" id="bmiScaleFill"></div>
+                <div class="bmi-scale-marker" id="bmiScaleMarker"></div>
+            </div>
+            <div class="bmi-scale-labels">
+                <span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span>
+            </div>
+            <p class="text-muted mt-3 mb-0" id="bmiHealthyRange">Healthy BMI range: 18.5 – 24.9</p>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="dash-card h-100">
+            <span class="eyebrow">Daily Health Summary</span>
+            <div class="daily-summary-grid mt-3">
+                <div class="daily-item">
+                    <i class="fa-solid fa-glass-water"></i>
+                    <span class="data-font" id="waterIntake">--</span>
+                    <span class="daily-label">Water intake</span>
+                </div>
+                <div class="daily-item">
+                    <i class="fa-solid fa-fire"></i>
+                    <span class="data-font" id="calorieTarget">--</span>
+                    <span class="daily-label">Est. calories</span>
+                </div>
+                <div class="daily-item">
+                    <i class="fa-solid fa-person-walking"></i>
+                    <span class="data-font" id="activityLevel">--</span>
+                    <span class="daily-label">Activity goal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Recommendation Cards -->
+<div class="row g-4">
+    <div class="col-md-3 col-sm-6">
+        <div class="dash-card rec-card">
+            <i class="fa-solid fa-apple-whole rec-icon"></i>
+            <h3 class="h6 display-font">Nutrition</h3>
+            <p class="text-muted small mb-0" id="recNutrition">--</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="dash-card rec-card">
+            <i class="fa-solid fa-dumbbell rec-icon"></i>
+            <h3 class="h6 display-font">Exercise</h3>
+            <p class="text-muted small mb-0" id="recExercise">--</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="dash-card rec-card">
+            <i class="fa-solid fa-heart-circle-check rec-icon"></i>
+            <h3 class="h6 display-font">Lifestyle</h3>
+            <p class="text-muted small mb-0" id="recLifestyle">--</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="dash-card rec-card">
+            <i class="fa-solid fa-moon rec-icon"></i>
+            <h3 class="h6 display-font">Sleep</h3>
+            <p class="text-muted small mb-0" id="recSleep">--</p>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <a href="{{ url_for('diet_plan') }}" class="btn next-btn me-2">View Diet Plan</a>
+<a href="{{ url_for('exercise_plan') }}" class="btn back-btn">View Exercise Plan</a>
+<button id="downloadReportBtn" class="btn back-btn">Download Report (PDF)</button>
+</div>
+
+    </div>
+</div>
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,504 @@
+/* THEME VARIABLES */
+:root {
+    --ink: #2B1B2E;
+    --bloom: #C2578E;
+    --iris: #6B4E9E;
+    --linen: #FBF6F3;
+    --mist: #F3E8F0;
+    --gold: #C9974C;
+}
+/* GLOBAL TYPOGRAPHY & BASE STYLES */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--linen);
+}
+
+h1, h2, h3, .display-font {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+}
+
+.data-font {
+    font-family: 'IBM Plex Mono', monospace;
+}
+/* HERO SECTION */
+.hero-section {
+    background: var(--linen);
+    overflow: hidden;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--iris);
+    background: var(--mist);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+}
+
+.hero-btn {
+    background: var(--ink);
+    color: var(--linen);
+    border: none;
+    border-radius: 100px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    background: var(--bloom);
+    color: white;
+}
+
+.cycle-ring {
+    width: 100%;
+    max-width: 320px;
+}
+
+.ring-day {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    fill: var(--ink);
+}
+
+.ring-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    fill: var(--iris);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+/* FEATURE CARDS */
+.feature-card {
+    background: var(--linen);
+    border-radius: 20px;
+    padding: 2.2rem 1.8rem;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(43, 27, 46, 0.08);
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    color: var(--bloom);
+    margin-bottom: 1rem;
+    display: block;
+}
+/* ASSESSMENT PAGE LAYOUT */
+.assessment-page {
+    min-height: 80vh;
+}
+/* PROGRESS TRACKER */
+.progress-track {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.progress-step.active,
+.progress-step.completed {
+    opacity: 1;
+}
+
+.step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    background: var(--mist);
+    color: var(--iris);
+    border: 2px solid transparent;
+}
+
+.progress-step.active .step-num {
+    border-color: var(--bloom);
+    background: white;
+}
+
+.progress-step.completed .step-num {
+    background: var(--iris);
+    color: white;
+}
+
+.step-label {
+    font-size: 0.75rem;
+    color: var(--ink);
+    font-weight: 500;
+}
+/* ASSESSMENT FORM CARD */
+.assessment-card {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(43, 27, 46, 0.08);
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--ink);
+}
+
+.form-control {
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid var(--mist);
+}
+
+.form-control:focus {
+    border-color: var(--bloom);
+    box-shadow: 0 0 0 3px rgba(194, 87, 142, 0.12);
+}
+/* BMI PREVIEW COMPONENT */
+.bmi-preview {
+    background: var(--mist);
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+}
+
+.bmi-value {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--iris);
+}
+
+.bmi-category {
+    color: var(--ink);
+    font-size: 0.9rem;
+}
+/* FORM ACTION BUTTONS */
+.step-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+}
+
+.next-btn, .back-btn, .submit-btn {
+    border-radius: 100px;
+    padding: 0.7rem 2rem;
+    font-weight: 600;
+    border: none;
+}
+
+.next-btn, .submit-btn {
+    background: var(--ink);
+    color: white;
+}
+
+.next-btn:hover, .submit-btn:hover {
+    background: var(--bloom);
+    color: white;
+}
+
+.back-btn {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--mist);
+}
+/* TOGGLE BUTTON COMPONENTS */
+.btn-toggle-group {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.btn-toggle {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    border: 1.5px solid var(--mist);
+    background: white;
+    color: var(--ink);
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.btn-toggle.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: white;
+}
+/* SYMPTOM SELECTION COMPONENT */
+.symptom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.symptom-check {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 14px;
+    border: 1.5px solid var(--mist);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.symptom-check input {
+    accent-color: var(--bloom);
+    width: 18px;
+    height: 18px;
+}
+
+.symptom-check:has(input:checked) {
+    background: var(--mist);
+    border-color: var(--bloom);
+}
+/* MOBILE RESPONSIVE STYLES */
+@media (max-width: 576px) {
+    .symptom-grid { grid-template-columns: 1fr; }
+}
+/* DASHBOARD CARDS & PATIENT INFORMATION */
+.dash-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(43, 27, 46, 0.06);
+}
+
+.patient-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.4rem;
+}
+
+.patient-label {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--iris);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+}
+
+.patient-value {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+/* DIAGNOSIS RESULT COMPONENT */
+.diagnosis-card {
+    border: 2px solid var(--mist);
+    transition: border-color 0.3s ease;
+}
+
+.diagnosis-card.risk-high {
+    border-color: var(--bloom);
+}
+
+.diagnosis-card.risk-low {
+    border-color: var(--iris);
+}
+/* CONFIDENCE SCORE INDICATOR */
+.confidence-bar-track {
+    background: var(--mist);
+    border-radius: 100px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.confidence-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--iris), var(--bloom));
+    border-radius: 100px;
+    transition: width 0.8s ease;
+}
+
+.confidence-text {
+    display: block;
+    margin-top: 0.6rem;
+    color: var(--ink);
+    font-size: 0.9rem;
+}
+/* RESPONSIVE DASHBOARD LAYOUT */
+@media (max-width: 576px) {
+    .patient-grid { grid-template-columns: 1fr 1fr; }
+}
+/* BMI VISUALIZATION COMPONENT */
+.bmi-big { font-size: 2.4rem; font-weight: 600; color: var(--ink); }
+
+.bmi-cat-badge {
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.cat-low  { background: #FFF3D6; color: #9A6B00; }
+.cat-good { background: #E3F5E8; color: #1E7A3D; }
+.cat-warn { background: #FFEAD6; color: #B5560F; }
+.cat-high { background: #FBE1E7; color: var(--bloom); }
+
+.bmi-scale {
+    position: relative;
+    height: 10px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #FFD98C 0%, #7FD99A 25%, #FFC98C 60%, #F3A5A5 100%);
+    margin-top: 0.5rem;
+}
+.bmi-scale-marker {
+    position: absolute;
+    top: -5px;
+    width: 20px; height: 20px;
+    background: var(--ink);
+    border: 3px solid white;
+    border-radius: 50%;
+    left: 0%;
+    transform: translateX(-50%);
+    transition: left 0.8s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.bmi-scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--iris);
+    margin-top: 0.4rem;
+}
+/* DAILY HEALTH SUMMARY */
+.daily-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.daily-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--mist);
+    border-radius: 16px;
+    padding: 1.2rem 0.6rem;
+    text-align: center;
+}
+.daily-item i { font-size: 1.3rem; color: var(--bloom); }
+.daily-item .data-font { font-size: 1.1rem; font-weight: 600; }
+.daily-label { font-size: 0.75rem; color: var(--iris); }
+/* RECOMMENDATION CARDS */
+.rec-card {
+    text-align: center;
+    padding: 1.8rem 1.2rem;
+}
+.rec-icon {
+    font-size: 1.6rem;
+    color: var(--iris);
+    margin-bottom: 0.8rem;
+    display: block;
+}
+/* WEEKLY WELLNESS PLAN */
+.week-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.week-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 14px;
+    transition: background 0.15s ease;
+}
+.week-row:nth-child(odd) {
+    background: var(--mist);
+}
+.week-row:hover {
+    background: #EBD9E5;
+}
+.week-day-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: white;
+    background: var(--iris);
+    padding: 0.35rem 0.7rem;
+    border-radius: 8px;
+    min-width: 46px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.week-icon {
+    color: var(--bloom);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.week-activity {
+    font-size: 0.92rem;
+    color: var(--ink);
+}
+/* CHART CONTAINERS */
+.chart-wrap {
+    position: relative;
+    height: 220px;
+    margin-top: 1rem;
+}
+.chart-wrap-wide {
+    height: 320px;
+}
+/* PATIENT HISTORY TABLE */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.history-table th {
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--iris);
+    padding: 0.8rem;
+    border-bottom: 2px solid var(--mist);
+}
+.history-table td {
+    padding: 0.9rem 0.8rem;
+    border-bottom: 1px solid var(--mist);
+}
+/* RISK STATUS BADGES */
+.risk-badge {
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.risk-badge-high { background: #FBE1E7; color: var(--bloom); }
+.risk-badge-low  { background: #EDE7F6; color: var(--iris); }
